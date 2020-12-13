@@ -7,8 +7,8 @@
         {% else %}
     <h1 class="text-pink-600 text-3xl font-bold my-4 py-2 border-b border-pink-600 text-center"> Create a quote </h1>
 
-    <form method="post" enctype="multipart/form-data" class="flex flex-col my-6 mx-4">
-    <table>
+    <form method="post" enctype="multipart/form-data" class="flex flex-col my-6 mx-2 ">
+    <table >
     {% for field in form %}
         <tr>
             <td class="text-sm text-pink-600 font-bold px-2">{{ field.label_tag }}</td>
