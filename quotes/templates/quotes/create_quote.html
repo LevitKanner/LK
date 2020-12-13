@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} create quote {% endblock %}
+{% block content %}
+    <div class="flex flex-col space-y-2">
+    {% if submitted %}
+        <h1 class="text-pink-600 text-3xl font-bold my-4 py-2 border-b border-pink-600 text-center"> Your quote was submitted successfully </h1>
+        {% else %}
+    <h1 class="text-pink-600 text-3xl font-bold my-4 py-2 border-b border-pink-600 text-center"> Create a quote </h1>
+
+    <form method="post" enctype="multipart/form-data" class="flex flex-col my-6 mx-4">
+    <table>
+    {% for field in form %}
+        <tr>
+            <td class="text-sm text-pink-600 font-bold px-2">{{ field.label_tag }}</td>
+            <td>
+                {{ field }}
+                {% if field.help_text %}
+               <p> {{ field.help_text|safe }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+     </table>
+        {% csrf_token %}
+       <input type="submit" name="submit" value="Submit"
+       class="px-6 py-2 bg-pink-600 font-bold text-pink-100 capitalize rounded-lg shadow-lg hover:shadow-none hover:bg-pink-700 m-3">
+    </form>
+    {% endif %}
+    </div>
+{% endblock %}

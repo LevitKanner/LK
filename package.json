@@ -1,0 +1,18 @@
+{
+  "name": "mfdw_site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "tailwindcss": "^2.0.1",
+    "postcss": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "tailwind build tailwind.css -o mfdw_site/static/css/main.css "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

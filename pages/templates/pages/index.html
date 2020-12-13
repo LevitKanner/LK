@@ -1,0 +1,9 @@
+{% extends '../base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div class="min-h-screen p-4">
+    <p class="select-none "> {{ content }}</p>
+    <p class="text-sm text-gray-400 font-thin mt-4 capitalize"> last updated: <span class="text-bold text-sm text-black"> {{ last_updated|date:'D d F, Y' }}</span></p>
+    </div>
+{% endblock %}
