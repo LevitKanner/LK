@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %} {{ quote.name }} {% endblock %}
+ {% block content %}
+     <div class="flex flex-col w-full">
+     <h1 class="text-pink-600 text-3xl font-bold my-4 py-2 border-b border-pink-600 text-center"> {{ quote.name }}</h1>
+     </div>
+
+{% endblock %}
