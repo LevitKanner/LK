@@ -4,7 +4,7 @@
 
     <div class="flex flex-col w-full">
     <h1 class="text-pink-600 text-3xl font-bold my-4 py-2 border-b border-pink-600 text-center"> Quotes </h1>
-    <div class="flex flex-wrap ">
+    <div class="flex flex-wrap">
     {% for quote in all_quotes %}
         <a href="/quotes/{{ quote.id }}" class="w-1/3 p-3">
             <div class="flex flex-col  p-3 rounded-lg shadow-lg bg-gray-100">
@@ -18,6 +18,10 @@
                     <p class="text-sm text-gray-700 lowercase py-2">Price:<span class="px-1 text-xs font-semibold">GHS{{ quote.quote_price }}</span></p>
             </div>
         </a>
+        {% empty %}
+            <p class="text-sm text-gray-700 font-bold my-4 text-center w-full"> You have submitted no quotes. Submit a quote
+                <a href="{% url 'quotes:create_quote' %}" class="text-blue-500">here</a></p>
+
     {% endfor %}
     </div>
 </div>
