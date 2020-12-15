@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
+from quotes.views import Register
 
 urlpatterns = [
+    path('register/success', TemplateView.as_view(template_name='registration/success.html'), name='register-success'),
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
     path('', include('pages.urls', namespace='pages')),
-    path('quotes/', include('quotes.urls', namespace='quotes'))
+    path('quotes/', include('quotes.urls', namespace='quotes')),
+    path('register/', Register.as_view(), name='register')
 ]

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Register {% endblock %}
+{% block navigation %} {% endblock %}
+{% block content %}
+    <div class="flex flex-col w-full items-center">
+    <div class="p-3 mb-4">
+    <h1 class="text-3xl text-pink-600 font-bold"> User Registration </h1>
+    <p class="capitalize text-gray-600 font-semibold py-2"> Enter your username and password to register </p>
+    </div>
+    <form method="post" action="" class="mb-3">
+       {% for field in form %}
+           <div class="p-2">
+           {% if field.help_text %}
+               <p class="text-gray-500 text-xs font-bold py-1"> {{ field.help_text|safe }}</p>
+           {% endif %}
+           <p class="text-sm font-bold text-pink-600">{{ field.label_tag }} <span class="mx-2">{{ field }}</span></p>
+           </div>
+        {% endfor %}
+    <input type="submit" value="Register" class="mx-2 text-sm font-bold uppercase text-pink-100 py-2 px-6 bg-pink-500 hover:bg-pink-600 rounded-lg my-2">
+        <input type="hidden" name="next" value="{{ next }}">
+        {% csrf_token %}
+    </form>
+    </div>
+{% endblock %}

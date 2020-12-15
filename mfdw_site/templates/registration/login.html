@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Quote login {% endblock %}
+{% block navigation %} {% endblock %}
+{% block content %}
+    <div class="flex flex-col w-full justify-center items-center py-4">
+    <h1 class="text-3xl text-pink-600 font-bold"> Login </h1>
+    <p class="capitalize text-gray-600 font-semibold my-2">Login to submit or view quotes</p>
+
+    <form method="post" action="{% url 'login' %}" class="space-y-4 mt-12 mb-6">
+        {% for field in form %}
+            <p class="text-sm font-bold text-pink-600 ">{{ field.label_tag }} <span class="mx-2"> {{ field }}</span> </p>
+        {% endfor %}
+        <p class="">
+            <input type="submit" value="login" class="py-2 px-8 bg-pink-500 hover:bg-pink-600 rounded-lg text-pink-100 uppercase font-bold text-sm">
+        </p>
+        <p class="">Not registered yet? <a href="{% url 'register' %}" class="text-blue-500 italic text-sm"> Register here</a>.</p>
+        <input type="hidden" name="next" value="{{ next }}">
+        {% csrf_token %}
+    </form>
+    </div>
+{% endblock %}

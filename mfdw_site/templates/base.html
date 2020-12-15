@@ -354,7 +354,15 @@
             <a href=""> About </a> </li>
         <li class="text-pink-600 text-sm font-bold m-2 mx-3 hover:text-blue-600"> Blog </li>
     </ul>
-    <button class="text-sm font-bold text-pink-600 m-2 mx-3 hover:text-blue-600"> Logout </button>
+
+    {% if user.is_authenticated %}
+    <p>
+       <span class="text-sm font-bold text-gray-700 capitalize "> Hello {{ user.username }}</span>
+        <a href="{% url 'logout' %}?next=/" class="text-sm font-bold text-pink-600 m-2 mx-3 hover:text-blue-600"> Logout </a>
+    </p>
+        {% else %}
+        <a href="{% url 'login' %}?next=/" class="text-sm font-bold text-pink-600 m-2 mx-3 hover:text-blue-600"> Login </a>
+    {% endif %}
 </header>
 
 {%  block banner %}

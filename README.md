@@ -13,3 +13,4 @@ A mini django app.
 ## Screenshots 
 ![](screenshots/screenshot.png)
 ![](screenshots/screenshot2.png)
+![](screenshots/registration.png)
